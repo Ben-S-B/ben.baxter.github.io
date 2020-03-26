@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Ben Baxter" content="Ashbury Sabermetrics"/>
+    <meta name="Baseball Website" content="Mainpage">
+    <meta name="Baseball Website" content="Eddie Murray's career">
+    <meta name="Baseball Website" content="Rickey Hendersons career">
+    <meta name="Baseball Website" content="Barry Bonds career">
+    <meta name="Baseball Website" content="Tony Gwynns career">
+    <meta name="Baseball Website" content="Evaluates your hitting">
+    <meta name="Baseball Website" content="Evaluate your Physical elements">
+    <meta name="Baseball Website" content="Evaluates your fielding">
+    <title>Your fielding</title>
+    <style>@font-face {
+        font-family: "Linux Libertine";
+    }
+    html {
+        font-family: Arial Hebrew Scholar;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        margin: 1em;
+    }
+    article,aside,details,figcaption,figure,footer,Header,hgroup,main,menu,nav,section,summary,title {
+        display: inline-table;
+    }
+
+    .title {
+        font-size: 100px;
+        margin: 50px;
+        font-palette: #ffff00;
+        text-shadow: 6px 6px 6px #aaa;
+    }
+    .undertitle {
+        font-size: 25px;
+    }
+    small {
+        font-size: 80%;
+    }
+
+    img {
+        border: 0;
+        max-width: 100%;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    html {
+        color: #222;
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    img,svg,video {
+        vertical-align: middle;
+    }
+    fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    textarea {
+        resize: vertical;
+    }
+
+
+    @media only screen and (min-width: 35em) {
+    }
+    @media print,(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 1.25dppx),(min-resolution: 120dpi) {
+    }
+    @media print {
+        *,*:before,*:after,*:first-letter,*:first-line {
+            background: transparent !important;
+            color: #000 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+
+    }
+    .article h1 {
+        font-family: 'Linux Libertine','Georgia','Times',serif;
+        border-bottom: 1px solid #a2a9b1;
+    }
+    .article h2 {
+        font-size: 1.6em;
+        margin: 0.5em 0 0.5em 0;
+        font-family: 'Linux Libertine','Georgia','Times',serif;
+        border-bottom: 1px solid #000000;
+        line-height: 1.4em;
+        padding-bottom: 0em;
+    }
+    .article h3 {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .article p.roleNote {
+        padding: 1em 0 0 1.6em;
+        font-style: italic;
+    }
+    footer {
+        padding: 1em 0 0 1.6em;
+        margin-bottom: 50em;
+    }
+    </style>
+</head>
+<body background="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Grass.jpeg">
+<h1 class="title">Introduction</h1>
+ <article class="undertitle"><p>As many of you already know, UZR is an advanced defensive metric that uses play-by-play data recorded by Baseball Info Solutions (BIS) to estimate each fielder’s defensive contribution in theoretical runs above or below an average fielder at his position in that player’s league and year. Thus, a SS with a UZR of zero is exactly average as compared to a SS in the same year and in the same league. If his UZR is plus, he is above average, and if it is minus, he is below average.
+
+     </p><p> It is similar to offensive linear weights, where each event is assigned a number of runs, or fraction of a run, which is equal to the average value of that event as compared to a generic PA, generally for that year and for that league. With UZR and offensive linear weights a player gets credit for the theoretical value of an event (for UZR, those events are turning a batted ball into an out, allowing a batted ball to drop for a hit, making an error – or a fielder’s choice – that allows the batter to reach base, or making an error that allows a base runner to advance one or more bases) rather than what actually transpired during or subsequent to that event, in terms of any scoring on that play, base runner advances, etc., and regardless of the score or inning of the game.
+
+
+     One of the differences between UZR and linear weights is that with UZR the amount of credit that the fielder receives on each play, positive (if he makes an out) or negative (if he allows a hit or an ROE), depends on how often that particular kind of batted ball, in terms of its location, speed and several other factors, is fielded by an average fielder at the same position, measured over a time span of several years, in addition to whether the batted was a hit, out, or error (or FC).<p> With offensive linear weights, if a batted ball is a hit or an out, the credit that the batter receives is not dependent on where or how hard the ball was hit, or any other parameters.
+
+     With UZR, if a fielder makes an out, and the UZR engine estimates that it was a difficult ball to field (and turn into an out) by an average fielder at that position, then the fielder will get more credit than if the UZR engine determined that it was an easy ball to field. Likewise, if a batted ball drops for a hit, a fielder will get more negative credit if UZR determined that it was an easy ball to field (for that fielding position) and less negative credit if it was a difficult ball to field. If a fielder makes an error, UZR automatically assumes that it was a relatively easy ball to field, since that is presumably the definition of an error in the first place, so there is no need to incorporate the speed and location of the batted ball and other factors that can influence how difficult a batted ball is to field. In other words, in UZR, errors are treated as balls that are normally fielded by that fielder and that fielder only (the one who made the error), 95% of the time, or whatever the average error rate is for that position and that type of ball.
+ </p>
+ </article>
+<h2 class="title">Fielders credits and debits</h2>
+<article class="undertitle">How does UZR determine how much credit, positive or negative, to award a fielder on each batted ball? First it goes through 6 years of batted ball data and determines how often each type and location of batted ball is fielded by each defensive position, making adjustments for the speed of the ball, and the handedness, speed, and power of the batter. Later on, further adjustments are made, such as the outs and base runners, and various park adjustments, like the size and configuration of the OF, the speed of the infield, and the speed of batted balls in general, as influenced by temperature, altitude, and the ground ball percentage of the pitcher (e.g. ground ball pitchers allow easier to field ground balls and harder to field air balls). For example, UZR might find that from 2004-2009, of all hard-hit line drives hit by a LH batter with above-average power to a certain location in an average OF, 15% are fielded by the CF’er, 10% by the LF, and 75% fall for a hit. Remember, those would be average numbers across all MLB parks.
+
+    Now, let’s say that we want to compute a UZR for every player in 2009. For every batted ball, either it is caught by a fielder and turned into an out (either the batter or a base runner is out, or both of course), it is scored as a hit, or the batter reaches on an error or a fielder’s choice (and no out is made). One or more fielders will receive positive or negative credit depending on the outcome of the play and depending on how often that same batted ball in that same situation (outs, base runners, attributes of the batter, etc.) was successfully fielded by each fielder from 2004-2009.
+
+    <p>Let’s say that that same batted ball in the example above was caught by the CF’er on the first play of a game. Since typically someone will catch that same ball only 25% of the time (see above), this particular CF’er will get credit for an extra .75 plays – 100% minus 25%. We then convert .75 plays into runs by multiplying .75 by the difference between an average hit in that location and the average value of an air ball out. A typical outfield hit is worth around .56 runs and any batted ball out is worth around -.27 runs, so the difference between a hit and an out is worth around .83 runs. (We don’t vary the value of the hit or out based on the outs or base runners because we want “game situation-neutral” defensive evaluations.) Since our fielder gets credit for .75 extra plays, we give him credit for .75 times .83 runs, or +.6255 runs for that play.
+        The LF’er, even though he typically catches that same ball 10% of the time, gets no demerits for not making the play. In UZR, when a ball is caught and turned into an out by one fielder, no other fielder gets docked any runs. This helps to minimize the effects of “ball-hogging.” If we didn’t do this, for example, on teams where the CF’er liked to take charge of just about every lazy fly ball hit into the gaps, the LF’er and RF’er would end up being penalized for balls that they could have easily fielded. Of course, with this method, a ball hogger will get slightly more credit than he deserves, but as long as his ball-hogging is done on easy fly balls, he isn’t going to get much credit anyway. For example, if a certain type of ball and location is caught 90% of the time, whoever catches it is only going to receive .1 (1 minus .9) times .83, or .083 runs in credit.</p><p>
+
+    <p>  Notice that our CF’er did not get credit for 100% minus 15%, where the 15% is the percentage of time a typical CF’er catches the ball. Why is this? Because the total credit for catching that ball has to be 100% minus how often it is typically caught by anyone (25% in this case), and since no one else but the CF’er will (or should) receive credit, he has to get all of the total credit on that play, which is .75 extra balls. You may also notice that there is a slight flaw in that methodology. Let’s say that the LF’er normally catches 80% of those balls and the CF’er 10%. If the CF’er does catch that ball, he is only going to get credit for .1 plays even though it appears that it was a difficult catch for him (since he only catches similar balls in similar situations 10% of the time). But, if we give him more credit than .1 extra balls, we would have to take something away from the LF’er who normally fields that ball 80% of the time. We could do something like that, but we choose not to. As I mentioned before, if we dock one or more fielders when another fielder makes a play, we run into ball hogging problems. All of these problems arise, of course, because we don’t know precisely where a ball is hit, we don’t know exactly how long the ball was airborne or on the ground before it lands, is touched, or passes a fielder, and we don’t know exactly where the fielders were positioned when the ball was hit. Many decisions we have to make regarding the UZR methodology involve a trade-off. Given the limitations of the data, while the outcome is quite reliable, especially with large amounts of data (say, several years for a player), it is not perfect.</p>
+
+    If that same ball were to drop for a hit, now our CF’er and our LF’er would both be penalized. First we figure the total cost of the hit. Since this particular batted ball is typically fielded by someone 25% of the time, the cost of the hit is .25 plays. Now, how do we apportion that .25? Since the LF’er catches 10% of these balls and the CF’er 15%, the LF’er is responsible for 40% (10/25) of the hits and the CF’er, 60% (15/25). So, the LF’er gets docked .4 (40%) times .25, or .1 plays, and the CF’er, .6 times .25, or .15, a total of .25 plays. Again, the run value of a play is the difference between an out and a typical hit in that area of the field, or around .83 runs. So when that ball drops for a hit, the LF’er gets docked .83 times .1, or .083 runs, and the CF’er gets nicked by .83 times .15, or .123 runs. Makes sense, right? If the CF’er catches a certain ball more often than another fielder or fielders, and the ball falls for a hit, he should bear the majority or plurality of the “blame.”
+
+    On any given batted ball, it is possible for 2, 3 or even 4 fielders to receive negative credit when a ball drops for a hit. As long as a position even occasionally catches a ball in that “bucket” (a “bucket” is a certain type of ball hit to a certain location at a certain speed with a certain kind of batter at the plate, etc.), a player at that position will get docked some fraction of a run when that ball falls for a hit. By the way, when figuring the value of a play, or the difference between a hit and an out for a certain type of batted ball in a certain location, we always use the average hit value for that kind of ball over our 6-year time span and across all parks. We don’t use the actual hit value on that play (e.g. a double) if the batted ball lands for a hit, and we don’t use the average hit value for that park. Again, we are trying to evaluate defense in as much of a context-neutral environment as possible.
+
+    Anyway, UZR goes through each batted ball for every game and does the same calculations as above, awarding one or more fielders plus or minus credit depending on what type of ball was hit, it’s location, and the estimated position of the fielders, as determined by things like the handedness, speed, and power of the batters, and the outs and base runners. In addition, adjustments are made for the characteristics and configuration of the ballpark, and for the G/F tendencies of the pitcher.
+
+
+</article>
+<h3 class="title">Improvements</h3>
+<article class="undertitle"><p>A bunt ground ball is treated as a separate kind of a batted ball than a non-bunt ground ball, but only for the first, second, and third baseman. In fact, bunt ground balls are ignored when figuring the UZR of the SS (I realize that once in a blue moon the SS fields a bunt). The types of batted balls that UZR processes are ground balls, bunt ground balls, outfield line drives, and outfield fly balls (including so-called pop flies). All batted balls are put in one of those categories. No other batted ball type distinctions are used, such as “fliners,” which are used in Dewan’s plus/minus system. The speed of the each batted ball is also considered and is indicated in the data as “slow/soft, medium, or fast/hard” (3 categories).
+
+</article>
+<article class="undertitle">Double plays are treated the same as a single out. There is a separate calculation for GDP’s above or below average, based simply on the number of DP’s turned per DP opportunity, given the speed and location of the ground ball. First baseman scoops are not included in any UZR numbers. My research suggests that a good first baseman can save maybe 2-3 runs a year in “scoops” – probably less than what you might think. As well, outfield arm run values are also computed separately from “regular” UZR. They are based on the speed and location of batted balls to the outfield and how often base runners advance extra bases (advances), don’t advance the extra base (holds), or get thrown out trying to advance (kills). Park factors are used in arm ratings. For example, because the left fielder plays so shallow in Fenway and balls tend to quickly ricochet off the Green Monster, it is difficult to advance an extra base on a hit to LF in Boston. In Colorado, because the OF is so expansive, base runners advance more easily than in an average park. The UZR “arm engine” adjusts for those things.
+    </p><p>
+</article>
+<article class="undertitle">The base runner and outs adjustments are a proxy for infield defensive alignment. With a runner on first and less than 2 outs, UZR assumes that the SS and 2B are playing in “double play position” which is typically closer to second base and a little shallower. With a runner on first and no one on second, it is assumed that the first baseman is holding the runner. With a runner on first or second and no outs (or 1 out and a pitcher at bat), the third baseman often has to play up in anticipation of a bunt.</article>
+<article class="undertitle"></p><p>Left-handed and right-handed batters are treated separately since infielders and outfielders are positioned differently for each. Infield ground balls are also handled separately for two categories of batters: Above-average speed and below-average speed. All batters are put into one or the other category, using a Bill James type of speed score. It is assumed that infielders must play a little shallower and are more hurried in general with a faster runner at the plate. Also, the data includes whether a shift (a generic one, in the opinion of the “stringer” – the person recording the data) was on, and whether the shift likely affected the play at all. If it did – again, according to the “stringer”- then the play is ignored.</article>
+<article class="undertitle">For outfield air balls, two separate categories of batters are used as a proxy for outfielder depth: Batters with less than average power and batters with greater than average power. As with batter speed, all batters are assigned to one group or the other, based on the average distance of their air balls. The data also tells us if a ball hits off an outfield wall (on the fly) and whether, in the judgment of the “stringer,” it was catchable or not. If not, then the play is ignored. If a “wall ball” was catchable, it is treated like any other batted ball at that distance, with no regard for whether it hit the wall or not.
+</article>
+</p>
+
+
+
+</body>
+
+<a href="Your%20Batting.html">
+    <article h2>
+        <button>
+            Your batting
+        </button>
+        <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Hit.jpeg"</a>
+
+<a href="Physical%20Elements.html">
+    <button>
+        Your Physical elements
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Muscle.jpeg">
+</a>
+
+
+<a href="Your fielding.html">
+    <button>
+        Or fielding
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Hop.jpeg"></a>
+
+
+</article>
+<h3> Or You can come and see some career retrospectives</h3>
+<a href="Eddie%20Murray%20Career.html">
+    <article h3>
+        <button>
+            Eddie Murray #33 1B
+        </button>
+        <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Orange.jpeg"></a>
+<a href="Rickey%20Henderson%20%2324%20LF.html">
+    <button>
+        Rickey Henderson #24 LF
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/A's.jpeg">
+</a>
+<a href="Barry%20Bonds%20%237.html">
+    <button>
+        Barry Bonds #7 LF
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Bonds.jpeg"></a>
+<a href="Tony%20Gwynn.html">
+    <button>
+        Tony Gwyn #2 RF
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Gwynn.jpeg">
+</a>
+</article>
+<footer>
+    <a href="About%20Project.html">
+        About the project
+    </a>
+</footer>
+<footer>
+    <button>
+        <a href="Index.html">Home Page</a>
+    </button>
+</footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>@font-face {
+        font-family: "Linux Libertine";
+    }
+    html {
+        font-family: Arial Hebrew Scholar;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        margin: 1em;
+    }
+    article,aside,details,figcaption,figure,footer,Header,hgroup,main,menu,nav,section,summary,title {
+        display: inline-table;
+    }
+
+    .title {
+        font-size: 100px;
+        margin: 50px;
+        font-palette: #ffff00;
+        text-shadow: 6px 6px 6px #aaa;
+    }
+    .undertitle {
+        font-size: 25px;
+    }
+    small {
+        font-size: 80%;
+    }
+
+    img {
+        border: 0;
+        max-width: 100%;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    html {
+        color: #222;
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    img,svg,video {
+        vertical-align: middle;
+    }
+    fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    textarea {
+        resize: vertical;
+    }
+
+
+    @media only screen and (min-width: 35em) {
+    }
+    @media print,(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 1.25dppx),(min-resolution: 120dpi) {
+    }
+    @media print {
+        *,*:before,*:after,*:first-letter,*:first-line {
+            background: transparent !important;
+            color: #000 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+
+    }
+    .article h1 {
+        font-family: 'Linux Libertine','Georgia','Times',serif;
+        border-bottom: 1px solid #a2a9b1;
+    }
+    .article h2 {
+        font-size: 1.6em;
+        margin: 0.5em 0 0.5em 0;
+        font-family: 'Linux Libertine','Georgia','Times',serif;
+        border-bottom: 1px solid #000000;
+        line-height: 1.4em;
+        padding-bottom: 0em;
+    }
+    .article h3 {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .article p.roleNote {
+        padding: 1em 0 0 1.6em;
+        font-style: italic;
+    }
+    footer {
+        padding: 1em 0 0 1.6em;
+        margin-bottom: 50em;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="Ben Baxter" content="Ashbury Sabermetrics"/>
+    <meta name="Baseball Website" content="Mainpage">
+    <meta name="Baseball Website" content="Eddie Murray's career">
+    <meta name="Baseball Website" content="Rickey Hendersons career">
+    <meta name="Baseball Website" content="Barry Bonds career">
+    <meta name="Baseball Website" content="Tony Gwynns career">
+    <meta name="Baseball Website" content="Evaluates your hitting">
+    <meta name="Baseball Website" content="Evaluate your Physical elements">
+    <meta name="Baseball Website" content="Evaluates your fielding">
+    <title>Batting</title>
+
+</head>
+<body background="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Grass.jpeg">
+<h1 class="title">
+    How to evaluate your Hitting
+</h1>
+<p class="undertitle">
+    First let's move to BB%, or walk rate. This tells you how often you walks when Your in the box. Walks might seem boring, but walks are very valuable for a hitter. Think about it like this: A walk is the same thing as a single with respect to how far it advances the batter. It's not quite as good as a single, however, because it only advances the baserunners one base while a single might advance them two bases under the right circumstances. So if we factor in how frequently a man is on base and how often a single might advance that runner more than one base, you come to recognize that a walk isn't as good as a single, but it's still a great outcome. In other words, more walks are better than fewer walks.
+
+    <p class="undertitle">So let's pay attention to walks, but also to how often a hitter hits for extra bases. When we evaluate hitters, we're trying to decide how well they contribute to run scoring—that's always the question. We've already decided that we want to count walks to some degree, but now, we also want to reward hitters who hit for extra bases, because it moves them closer to the plate and it advances any runners further along than a single would have.
+
+</p>    Batting average tells us hits divided by at bats. We want to also factor in walks, which gets us to on base percentage (OBP). That's good, but we can do better. Slugging percentage tells us something about extra base hits, but it tells us nothing about walks and assumes a double is equal to two thirds of a triple with respect to its contribution. Better, but not best.
+
+   <p class="undertitle"> We'd like a stat that tells us exactly how much a hitter contributed to run scoring combining these two factors. Luckily, we've got one!
+
+
+</p>
+<h2 class="title">
+    Where do runs come from
+</h2>
+<p class="undertitle">
+    Every week, someone comes out with a new run estimator. You know those right? Take various components, like hits, HR, walks, outs, apply some constant to each of them, or maybe multiply and divide these components in some fashion, and the result is the runs a team was expected to score.
+
+    Let's take the basic version of Bill James Runs Created: take the Total Bases and multiply it by the On Base Average and you get Runs Scored. So, in a 9 inning game with 15 total bases, and you have 13 of 39 batters safe, that gives you an expected 5 runs scored. And if you look at a large enough sample, a team with 15 TB and a .333 OBA will probably score around 5 RPG. So, what's the problem?
+<p class="undertitle">
+    The problem is that this does not model reality. If you add a single to this game, you get 16 TB, a .350 OBA for a total of 5.6 RPG. That extra single added .6 runs to this game. Sounds about right, no?
+
+    No. Pete Palmer's Linear Weights says that an average single will add .47 runs to a game. Gee, that sounds about right, no?
+
+    No. The problem with these run estimators (and all their offshoots and close family members like Extrapolated Runs and Equivalent Runs) is that they don't model reality. The provide an ESTIMATE based on a formula that they hope capture reality. They don't.
+</p>
+<h2 class="title"> Modeling Reality</h2>
+
+    <p class="undertitle">How can we show this? What does model reality? How can we take any system (not necessarily baseball), and create a model? The best way is to determine all of your known variables, allow some allowances for unknown variables, and create a simulator that uses every variable you know and how each variable interacts with each other. (Think flight simulators.)
+
+    Ok, hot shot. So, how much run value does a simulator say a single is worth?
+
+    </p>
+    <p class="undertitle">If you were to construct your model perfectly (or as close as possible), you can create a system where 15 TB and a .333 OBA will produce 5 RPG. That is your controlled environment. If you then add a single randomly inside this system, one variable, and look at the result, you will conclude that the effect of adding that variable resulted in a change in the output of the system (over a large enough sample cases). In this case, adding a single would add .48 runs in this game.
+
+    Ok, so a single is worth .48 runs. Linear Weights is better, right?
+
+    Wrong. What that .48 means is that the MARGINAL effect of the single to a SPECIFIC run environment has a positive run effect of .48 runs. If you had a different run environment, say like the one Pedro or Randy provide their opposition, a single will not add .48 runs. It'll be more like .38 runs. This again can be shown with a perfectly constructed simulator.
+
+    Even worse, adding TWO singles does not necessarily add .96 runs, nor does adding 100 singles add 48 runs. Baseball run construction is non-linear interdependent.
+
+    <p class="undertitle">But do we have to run a simulator every time? Isn't there some relationship that we can find that'll show us that it's .38 or .58 or whatever?
+
+    Yes. And for that we have to understand how runs really are created.
+
+    An Interlude
+
+    Bill James has made several modifications to his basic Runs Created. These changes were made to better capture reality. Actually, they were made to improve accuracy over a sample of team totals. The changes made are good overall, but he makes one glaring error. While James has the correct basis for capturing the model of interdependence and non-linearity (on a team level anyway), this one error is his downfall.
+
+    Pete Palmer strangely enough showed us the dynamic values of each hitting component by era in his book The Hidden Game of Baseball. However, he took the easy way out and decided to use static (non-changing) values for the positive hitting components, and applied a dynamic (changing) value only to the out component. This gives the impression that hits and HR and walks have static values regardless of run environment, while the out is the only one that changes. The easy way out is not only the wrong way out, but it doesn't even capture reality.
+
+
+</p>
+</body>
+<body background="https://staticserver2.com/edu/static/en/800/balk.jpg"></body>
+<body background="https://staticserver2.com/edu/static/en/800/balk.jpg"></body>
+<a href="Your Batting.html">
+    <article h2>
+        <button>
+            Your batting
+        </button>
+        <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Hit.jpeg"</a>
+
+<a href="Physical%20Elements.html">
+    <button>
+        Your Physical elements
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Muscle.jpeg">
+</a>
+
+
+<a href="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Your%20fielding.html">
+    <button>
+        Or fielding
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Hop.jpeg"></a>
+
+
+</article>
+<h3> Or You can come and see some career retrospectives</h3>
+<a href="Eddie%20Murray%20Career.html">
+    <article h3>
+        <button>
+            Eddie Murray #33 1B
+        </button>
+        <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Orange.jpeg"></a>
+<a href="Rickey%20Henderson%20%2324%20LF.html">
+    <button>
+        Rickey Henderson #24 LF
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/A's.jpeg">
+</a>
+<a href="Barry%20Bonds%20%237.html">
+    <button>
+        Barry Bonds #7 LF
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Bonds.jpeg"></a>
+<a href="Tony%20Gwynn.html">
+    <button>
+        Tony Gwyn #2 RF
+    </button>
+    <img src="Ben%20Baxter,%20Sabermetrics%20Website,%20HTML%204/Images/Gwynn.jpeg">
+</a>
+</article>
+<footer>
+    <a href="About%20Project.html">
+        About the project
+    </a>
+</footer>
+<footer>
+    <button>
+        <a href="Index.html">Home Page</a>
+    </button>
+</footer>
+</body>
+</html>
